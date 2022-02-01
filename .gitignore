@@ -18,11 +18,11 @@ sched-client/.env.development.local
 sched-client/.env.test.local
 sched-client/.env.production.local
 
-.vscode/
+sched-client/.vscode/
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+sched-api/npm-debug.log*
+sched-api/yarn-debug.log*
+sched-api/yarn-error.log*
 
 sched-api/.DS_Store
 sched-api/.env
