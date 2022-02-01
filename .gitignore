@@ -1,0 +1,32 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+sched-client/node_modules
+sched-client/.pnp
+sched-client/.pnp.js
+
+# testing
+sched-client/coverage
+
+# production
+sched-client/build
+
+# misc
+sched-client/.DS_Store
+sched-client/.env.local
+sched-client/.env.development.local
+sched-client/.env.test.local
+sched-client/.env.production.local
+
+.vscode/
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+sched-api/.DS_Store
+sched-api/.env
+sched-api/.env.development
+sched-api/.env.test
+sched-api/node_modules/
+sched-api/coverage/
