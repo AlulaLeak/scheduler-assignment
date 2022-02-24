@@ -1,19 +1,17 @@
-import React, { useState } from 'react';
-import InterviewerList from '../InterviewerList';
-import Button from '../Button';
+import React, { useState } from "react";
+import InterviewerList from "../InterviewerList";
+import Button from "../Button";
 
 function Form(props) {
-  const {
-    interviewers, onSave, onCancel, interview,
-  } = props;
+  const { interviewers, onSave, onCancel, interview } = props;
 
-  const [error, setError] = useState('');
-  const [student, setStudent] = useState(props.student || '');
+  const [error, setError] = useState("");
+  const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
 
   function reset() {
-    setStudent('');
-    setInterviewer('');
+    setStudent("");
+    setInterviewer("");
   }
   function cancel() {
     setError(null);
@@ -21,15 +19,15 @@ function Form(props) {
     onCancel();
   }
   function validate() {
-    if (student === '') {
-      setError('student name cannot be blank');
+    if (student === "") {
+      setError("student name cannot be blank");
       return;
     }
-    if (interview === '' || interviewer === null) {
-      setError('interviewers name cannot be blank');
+    if (interview === "" || interviewer === null) {
+      setError("interviewers name cannot be blank");
       return;
     }
-    setError('');
+    setError("");
     onSave(student, interviewer);
   }
 
@@ -56,16 +54,10 @@ function Form(props) {
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button
-            onClick={() => cancel()}
-            danger
-          >
+          <Button onClick={() => cancel()} danger>
             Cancel
           </Button>
-          <Button
-            onClick={() => validate()}
-            confirm
-          >
+          <Button onClick={() => validate()} confirm>
             Save
           </Button>
         </section>

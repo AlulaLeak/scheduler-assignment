@@ -1,17 +1,17 @@
-import React from 'react';
-import 'components/Application.scss';
-import DayList from 'components/DayList';
-import Appointment from 'components/Appointment';
-import { useApplicationData } from '../hooks/useApplicationData';
-import { getAppointmentsForDay, getInterview, getInterviewersForDay } from '../helpers/selectors';
+import React from "react";
+import "components/Application.scss";
+import DayList from "components/DayList";
+import Appointment from "components/Appointment";
+import { useApplicationData } from "../hooks/useApplicationData";
+import {
+  getAppointmentsForDay,
+  getInterview,
+  getInterviewersForDay,
+} from "../helpers/selectors";
 
 export default function Application() {
-  const {
-    state,
-    setDay,
-    bookInterview,
-    cancelInterview,
-  } = useApplicationData();
+  const { state, setDay, bookInterview, cancelInterview } =
+    useApplicationData();
 
   const { day, days } = state;
 
@@ -27,26 +27,17 @@ export default function Application() {
           alt="Interview Scheduler"
         />
         <hr className="sidebar__separator sidebar--centered" />
-        {
-          days && (
-          <DayList
-            days={days}
-            day={day}
-            setDay={setDay}
-          />
-          )
-        }
+        {days && <DayList days={days} day={day} setDay={setDay} />}
         <nav className="sidebar__menu" />
         <img
           className="sidebar__lhl sidebar--centered"
           src="images/lhl.png"
           alt="Lighthouse Labs"
-        />
-        {' '}
+        />{" "}
       </section>
       <section className="schedule">
-        {
-          appointmentsForDay && appointmentsForDay.map((appointment) => {
+        {appointmentsForDay &&
+          appointmentsForDay.map((appointment) => {
             const interview = getInterview(state, appointment.interview);
             return (
               <Appointment
@@ -59,13 +50,8 @@ export default function Application() {
                 cancelInterview={cancelInterview}
               />
             );
-          })
-        }
-        <Appointment
-          key="Last"
-          time="5pm"
-        />
-
+          })}
+        <Appointment key="Last" time="5pm" />
       </section>
     </main>
   );
