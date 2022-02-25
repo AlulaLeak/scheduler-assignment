@@ -1,32 +1,18 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
-sched-client/node_modules
-sched-client/.pnp
-sched-client/.pnp.js
+node_modules
+.pnp
+.pnp.js
 
 # testing
-sched-client/coverage
+coverage
 
 # production
-sched-client/build
+build
 
 # misc
-sched-client/.DS_Store
-sched-client/.env.local
-sched-client/.env.development.local
-sched-client/.env.test.local
-sched-client/.env.production.local
-
-sched-client/.vscode/
-
-sched-api/npm-debug.log*
-sched-api/yarn-debug.log*
-sched-api/yarn-error.log*
-
-sched-api/.DS_Store
-sched-api/.env
-sched-api/.env.development
-sched-api/.env.test
-sched-api/node_modules/
-sched-api/coverage/
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.vscode/

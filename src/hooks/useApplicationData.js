@@ -45,7 +45,7 @@ export function useApplicationData() {
       [id]: appointment,
     };
 
-    const url = `http://localhost:8003/api/appointments/${id}`;
+    const url = `/api/appointments/${id}`;
 
     if (interview) {
       return axios.put(url, interview).then((response) => {
@@ -62,7 +62,7 @@ export function useApplicationData() {
 
   function cancelInterview(id) {
     if (id) {
-      const url = `http://localhost:8003/api/appointments/${id}`;
+      const url = `/api/appointments/${id}`;
 
       return axios.delete(url).then((response) => {
         console.log(response);
@@ -86,9 +86,9 @@ export function useApplicationData() {
   useEffect(() => {
     let isMounted = true;
     Promise.all([
-      axios.get("http://localhost:8003/api/days"),
-      axios.get("http://localhost:8003/api/appointments"),
-      axios.get("http://localhost:8003/api/interviewers"),
+      axios.get("/api/days"),
+      axios.get("/api/appointments"),
+      axios.get("/api/interviewers"),
     ]).then((all) => {
       const [days, appointments, interviewers] = all;
       if (isMounted) {
