@@ -70,7 +70,8 @@ export function useApplicationData() {
     const url = `http://localhost:8001/api/appointments/${id}`;
 
     if (interview) {
-      return axios.put(url, interview).then((response) => {
+      const obj = { interview };
+      return axios.put(url, obj).then((response) => {
         const newDays = updateSpots(appointments);
         setState({
           ...state,
