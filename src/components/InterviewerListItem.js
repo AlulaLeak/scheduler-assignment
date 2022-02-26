@@ -5,7 +5,13 @@ import classNames from "classnames";
 function InterviewerListItem(props) {
   const { interview, name, avatar, selected, setInterviewer } = props;
 
-  // interview.interviewer !== "" && setInterviewer(interview.interviewer);
+  useEffect(() => {
+    if (interview) {
+      if (name === interview.interviewer.name) {
+        setInterviewer();
+      }
+    }
+  }, []);
 
   const interviewListStyle = classNames("interviews__item", {
     "interviewers__item--selected": selected,
@@ -15,14 +21,6 @@ function InterviewerListItem(props) {
   }
 
   const intSelect = interviewerSelected();
-
-  useEffect(() => {
-    if (interview !== null) {
-      if (name === interview.interviewer.name) {
-        setInterviewer();
-      }
-    }
-  }, []);
 
   return (
     <li className={interviewListStyle} onClick={setInterviewer}>
