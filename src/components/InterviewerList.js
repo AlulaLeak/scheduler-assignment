@@ -1,11 +1,10 @@
-import React from 'react';
-import InterviewerListItem from './InterviewerListItem';
-import './InterviewerList.scss';
-import { PropTypes } from 'prop-types';
+import React from "react";
+import InterviewerListItem from "./InterviewerListItem";
+import "./InterviewerList.scss";
+import { PropTypes } from "prop-types";
 
 function InterviewerList(props) {
-  const { interviewers, value, onChange } = props;
-
+  const { interview, interviewers, interviewer, onChange } = props;
   const interviewItem = () => (
     <ul className="interviewers__list">
       {interviewers.map((item) => (
@@ -13,9 +12,10 @@ function InterviewerList(props) {
           key={item.id}
           name={item.name}
           avatar={item.avatar}
-          selected={item.id === value}
+          selected={item.id === interviewer}
           setInterviewer={() => onChange(item.id)}
-          interviewer={value}
+          interviewer={interviewer}
+          interview={interview}
         />
       ))}
     </ul>

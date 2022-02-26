@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import InterviewerList from "../InterviewerList";
 import Button from "../Button";
 
@@ -7,7 +7,7 @@ function Form(props) {
 
   const [error, setError] = useState("");
   const [student, setStudent] = useState(props.student || "");
-  const [interviewer, setInterviewer] = useState(props.interviewer || null);
+  const [interviewer, setInterviewer] = useState(null);
 
   function reset() {
     setStudent("");
@@ -48,8 +48,9 @@ function Form(props) {
         <section className="appointment__validation">{error}</section>
         <InterviewerList
           interviewers={interviewers}
-          value={interviewer}
+          interviewer={interviewer}
           onChange={setInterviewer}
+          interview={interview}
         />
       </section>
       <section className="appointment__card-right">
