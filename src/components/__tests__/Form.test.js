@@ -14,6 +14,9 @@ const interviewers = [
   },
 ];
 
+let interview = {};
+interview.interviewer = interviewers[0];
+
 describe("Form", () => {
   it("renders without student name if not provided", () => {
     const { getByPlaceholderText } = render(
@@ -35,7 +38,12 @@ describe("Form", () => {
 
     /* 2. Render the Form with interviewers and the onSave mock function passed as an onSave prop, the name prop should be blank or undefined */
     const { getByText } = render(
-      <Form interviewers={interviewers} onSave={mockOnSave} student="" />
+      <Form
+        interview={interview}
+        interviewers={interviewers}
+        onSave={mockOnSave}
+        student=""
+      />
     );
 
     /* 3. Click the save button */
